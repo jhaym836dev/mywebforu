@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>For My Friend</title>
+</head>
+<body>
+    <main class="page-wrap">
+        <div class="cat-wrap" aria-hidden="true">
+            <!-- Cute animated SVG cat -->
+            <svg class="cat" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" role="img">
+                <g class="cat-body">
+                    <ellipse cx="100" cy="100" rx="60" ry="50" fill="#ffd9d9" />
+                    <circle cx="70" cy="70" r="24" fill="#fff1f2" />
+                    <circle cx="130" cy="70" r="24" fill="#fff1f2" />
+                    <circle class="eye" cx="70" cy="70" r="8" fill="#111" />
+                    <circle class="eye" cx="130" cy="70" r="8" fill="#111" />
+                    <path class="mouth" d="M85 95 Q100 110 115 95" stroke="#b33" stroke-width="3" fill="transparent" stroke-linecap="round"/>
+                    <g class="paws">
+                        <ellipse cx="64" cy="120" rx="10" ry="6" fill="#ffd9d9" />
+                        <ellipse cx="136" cy="120" rx="10" ry="6" fill="#ffd9d9" />
+                    </g>
+                    <path class="ear left" d="M55 50 L70 30 L80 55 Z" fill="#ffd9d9"/>
+                    <path class="ear right" d="M145 50 L130 30 L120 55 Z" fill="#ffd9d9"/>
+                </g>
+            </svg>
+        </div>
+
+        <section class="card" aria-labelledby="card-title">
+            <h1 id="card-title">Can we be close?</h1>
+            <p class="creative">I made this little page just for you — soft, dreamy, and a tiny bit dramatic. Choose wisely ❤️</p>
+
+            <div class="buttons">
+                <a class="btn yes" href="yes.html">Yes</a>
+                <button class="btn no" id="noBtn" aria-label="No button">No</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="intro-loader">
+        <h1 class="name"><span id="span">Hello</span><br>KATE ASHLEY!</h1>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

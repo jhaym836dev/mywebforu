@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <title>Yes Thank You</title>
+</head>
+<body>
+     <main class="page-wrap">
+        <div class="cat-wrap" aria-hidden="true">
+            <!-- Cute animated SVG cat -->
+            <svg class="cat" viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" role="img">
+                <g class="cat-body">
+                    <ellipse cx="100" cy="100" rx="60" ry="50" fill="#ffd9d9" />
+                    <circle cx="70" cy="70" r="24" fill="#fff1f2" />
+                    <circle cx="130" cy="70" r="24" fill="#fff1f2" />
+                    <circle class="eye" cx="70" cy="70" r="8" fill="#111" />
+                    <circle class="eye" cx="130" cy="70" r="8" fill="#111" />
+                    <path class="mouth" d="M85 95 Q100 110 115 95" stroke="#b33" stroke-width="3" fill="transparent" stroke-linecap="round"/>
+                    <g class="paws">
+                        <ellipse cx="64" cy="120" rx="10" ry="6" fill="#ffd9d9" />
+                        <ellipse cx="136" cy="120" rx="10" ry="6" fill="#ffd9d9" />
+                    </g>
+                    <path class="ear left" d="M55 50 L70 30 L80 55 Z" fill="#ffd9d9"/>
+                    <path class="ear right" d="M145 50 L130 30 L120 55 Z" fill="#ffd9d9"/>
+                </g>
+            </svg>
+        </div>
+
+        <section class="card" aria-labelledby="card-title">
+            <h1 id="card-title">YEHEY!! You choose yes! Thank you so much.</h1>
+            <p class="creative">And now that you say yes, please click the button below and read it. Have a great day!❤️</p>
+
+            <div class="buttons">
+                <a class="btn yes" id="readBtn">Read This</a>
+                <a class="btn no" href="index.html">Exit</a>
+            </div>
+        </section>
+
+        <section id="book" class="book" aria-hidden="true">
+            <div class="book-outer" role="region" aria-label="Little reminder book">
+                <div class="book-spine" aria-hidden="true"></div>
+                <article class="book-pages">
+                    <h2>Little Reminder</h2>
+
+    <p>
+        I just want to take a moment to remind you of something important: you are walking a path that God Himself has prepared for you. Even when life feels heavy or uncertain, remember that nothing you face is wasted—every step is part of a bigger plan. Sometimes we don’t see the full picture right away, but that doesn’t mean it isn’t already beautifully designed.
+
+        God’s promises are not empty words; they are living truths meant to strengthen us. He has already written your story with love, hope, and victory. When challenges come, they are not meant to break you but to shape you into the person He knows you can be.
+
+        "For I know the plans I have for you," declares the Lord, "plans to prosper you and not to harm you, plans to give you hope and a future." — Jeremiah 29:11
+
+        So keep your head high, keep your faith strong, and trust that what’s ahead is far greater than what’s behind. You are capable, you are chosen, and you are loved beyond measure. I believe in you, and more importantly, God believes in you.
+
+        No matter what season you’re in right now, hold on to the truth that your breakthrough is coming. The best chapters of your life haven’t even been written yet, and I’m excited to see how God unfolds them for you. 🌸✨
+    </p>
+                </article>
+                <div class="book-actions">
+                    <button class="btn close" id="bookClose">Close &amp; Exit</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Redirect to index on browser refresh
+        (function(){
+            try{
+                var nav = performance.getEntriesByType && performance.getEntriesByType('navigation') && performance.getEntriesByType('navigation')[0];
+                if(nav && nav.type === 'reload'){
+                    location.href = 'index.html';
+                    return;
+                }
+            }catch(e){/* ignore */}
+        })();
+
+        document.addEventListener('DOMContentLoaded', function(){
+            var readBtn = document.getElementById('readBtn');
+            var book = document.getElementById('book');
+            var bookClose = document.getElementById('bookClose');
+
+            readBtn.addEventListener('click', function(e){
+                e.preventDefault();
+                book.classList.add('open');
+                book.setAttribute('aria-hidden','false');
+                // prevent background scrolling while reading (mobile & desktop)
+                document.documentElement.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden';
+                // smooth reveal then scroll into center
+                setTimeout(function(){
+                    try{ book.scrollIntoView({behavior:'smooth', block:'center'}); }catch(e){}
+                }, 80);
+            });
+
+            bookClose.addEventListener('click', function(){
+                // animate close, restore scrolling, then go back to index
+                book.classList.remove('open');
+                document.documentElement.style.overflow = '';
+                document.body.style.overflow = '';
+                setTimeout(function(){ location.href = 'index.html'; }, 380);
+            });
+        });
+    </script>
+</body>
+</html>
